@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,6 +41,11 @@ public class AlunosResource {
 	@DeleteMapping("/alunos")
 	public void removeAluno(@RequestBody Aluno alunos) {
 		alunoRepository.delete(alunos);
+	}
+	
+	@PutMapping("/alunos")
+	public Aluno atualizarAluno(@RequestBody Aluno alunos) {
+		return alunoRepository.save(alunos);
 	}
 		
 }
